@@ -54,16 +54,20 @@ BaseTemplate/
 
 **3. Importer la base de données**
 
-Dans cet ordre, sinon les clés étrangères échouent :
+Trois fichiers, et rien d'autre :
 
-```
-resources/[SQL]/1.sql
-resources/[SQL]/2.sql
-resources/[SQL]/3.sql
-resources/[1.ESX_MAIN]/es_extended/es_extended.sql
-resources/[1.ESX_MAIN]/esx_identity/esx_identity.sql
-resources/[3.MAIN]/illenium-appearance/sql/*.sql
-```
+| Fichier | Ce qu'il crée |
+|---|---|
+| `resources/[SQL]/1.sql` | tables ESX : `users`, `jobs`, `job_grades`, `licenses`, `user_licenses`, `owned_vehicles`, `vehicle_categories`, `whitelist` |
+| `resources/[SQL]/2.sql` | tables illenium-appearance : `playerskins`, `player_outfits`, `player_outfit_codes`, `management_outfits` |
+| `resources/[SQL]/3.sql` | système VIP EsaiStudio |
+
+> **N'importez pas les `.sql` livrés dans les resources elles-mêmes**
+> (`es_extended/es_extended.sql`, `esx_identity/esx_identity.sql`,
+> `illenium-appearance/sql/*.sql`) : leur contenu est déjà fusionné dans les
+> trois fichiers ci-dessus. `esx_identity.sql` échouerait d'ailleurs sur un
+> `Duplicate column name 'firstname'`, puisque `1.sql` crée déjà la table
+> `users` avec les colonnes d'identité.
 
 **4. Configurer `server.cfg`**
 
