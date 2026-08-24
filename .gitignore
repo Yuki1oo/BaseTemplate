@@ -1,0 +1,32 @@
+# ── Binaires du serveur ──────────────────────────────────────────────────────
+# Les artefacts FXServer ne sont pas versionnés : ils pèsent ~190 Mo, changent
+# à chaque build et se téléchargent sur le site officiel Cfx.re.
+artefacts/
+artifacts/
+
+# ── Dépendances générées ─────────────────────────────────────────────────────
+# Reconstruites automatiquement au premier démarrage par les resources
+# [builders]/yarn et [builders]/webpack.
+node_modules/
+yarn-error.log
+
+# ── Runtime ──────────────────────────────────────────────────────────────────
+cache/
+logs/
+*.log
+svadhesive/
+
+# ── Fichiers locaux à ne JAMAIS publier ──────────────────────────────────────
+# Copiez server.cfg en server.local.cfg pour y mettre votre clé et votre base.
+server.local.cfg
+*.local.cfg
+.env
+.env.*
+
+# ── OS / éditeurs ────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.idea/
+.vscode/
